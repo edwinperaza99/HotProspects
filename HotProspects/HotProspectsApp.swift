@@ -2,7 +2,7 @@
 //  HotProspectsApp.swift
 //  HotProspects
 //
-//  Created by csuftitan on 5/7/24.
+//  Created by Edwin on 5/7/24.
 //
 
 import SwiftUI
