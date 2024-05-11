@@ -36,47 +36,49 @@ struct ProspectsView: View {
     var body: some View {
         NavigationStack {
             List(prospects, selection: $selectedProspects) { prospect in
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundStyle(.secondary)
-                    }
-                    Spacer()
-                    if filter == .none {
-                        if prospect.isContacted {
-                            Image(systemName: "bubble.left.and.text.bubble.right")
-                                .foregroundColor(.green)
-                        } else {
-                            Image(systemName: "bubble.left.and.exclamationmark.bubble.right")
-                                .foregroundColor(.red)
+                NavigationLink(destination: ProspectEditingView(prospect: prospect)) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        if filter == .none {
+                            if prospect.isContacted {
+                                Image(systemName: "bubble.left.and.text.bubble.right")
+                                    .foregroundColor(.green)
+                            } else {
+                                Image(systemName: "bubble.left.and.exclamationmark.bubble.right")
+                                    .foregroundColor(.red)
+                            }
                         }
                     }
-                }
-                .swipeActions {
-                    Button("Delete", systemImage: "trash", role: .destructive) {
-                        modelContext.delete(prospect)
-                    }
-                    
-                    if prospect.isContacted {
-                        Button("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark") {
-                            prospect.isContacted.toggle()
+                    .swipeActions {
+                        Button("Delete", systemImage: "trash", role: .destructive) {
+                            modelContext.delete(prospect)
                         }
-                        .tint(.blue)
-                    } else {
-                        Button("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark") {
-                            prospect.isContacted.toggle()
-                        }
-                        .tint(.green)
                         
-                        Button("Remind Me", systemImage: "bell") {
-                            addNotification(for: prospect)
+                        if prospect.isContacted {
+                            Button("Mark Uncontacted", systemImage: "person.crop.circle.badge.xmark") {
+                                prospect.isContacted.toggle()
+                            }
+                            .tint(.blue)
+                        } else {
+                            Button("Mark Contacted", systemImage: "person.crop.circle.fill.badge.checkmark") {
+                                prospect.isContacted.toggle()
+                            }
+                            .tint(.green)
+                            
+                            Button("Remind Me", systemImage: "bell") {
+                                addNotification(for: prospect)
+                            }
+                            .tint(.orange)
                         }
-                        .tint(.orange)
                     }
+                    .tag(prospect)
                 }
-                .tag(prospect)
             }
                 .navigationTitle(title)
                 .toolbar {
