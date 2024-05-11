@@ -32,7 +32,8 @@ struct ProspectsView: View {
             "Uncontacted people"
         }
     }
-    
+//    @State private var isShowingEditingView = false
+//    @State private var selectedProspect: Prospect?
     var body: some View {
         NavigationStack {
             List(prospects, selection: $selectedProspects) { prospect in
@@ -57,6 +58,10 @@ struct ProspectsView: View {
                             }
                         }
                     }
+//                    .onTapGesture {
+//                          selectedProspect = prospect
+//                          isShowingEditingView = true
+//                      }
                     .swipeActions {
                         Button("Delete", systemImage: "trash", role: .destructive) {
                             modelContext.delete(prospect)
@@ -103,6 +108,11 @@ struct ProspectsView: View {
                 .sheet(isPresented: $isShowingScanner) {
                     CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
                 }
+//                .sheet(isPresented: $isShowingEditingView) {
+//                   if let selectedProspect = selectedProspect {
+//                       ProspectEditingView(prospect: selectedProspect)
+//                   }
+//               }
         }
     }
     
