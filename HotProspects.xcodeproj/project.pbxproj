@@ -15,6 +15,8 @@
 		7A8537152BED8CB5001DBD7F /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8537142BED8CB5001DBD7F /* MeView.swift */; };
 		7A8537172BED8EB2001DBD7F /* Prospects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8537162BED8EB2001DBD7F /* Prospects.swift */; };
 		7A85371A2BEED29C001DBD7F /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 7A8537192BEED29C001DBD7F /* CodeScanner */; };
+		7A85371C2BEF379C001DBD7F /* ProspectEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85371B2BEF379C001DBD7F /* ProspectEditingView.swift */; };
+		7A85371E2BF01C8E001DBD7F /* SortedProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85371D2BF01C8E001DBD7F /* SortedProspectsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		7A8537122BED8CA6001DBD7F /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		7A8537142BED8CB5001DBD7F /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 		7A8537162BED8EB2001DBD7F /* Prospects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospects.swift; sourceTree = "<group>"; };
+		7A85371B2BEF379C001DBD7F /* ProspectEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectEditingView.swift; sourceTree = "<group>"; };
+		7A85371D2BF01C8E001DBD7F /* SortedProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedProspectsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				7A8537162BED8EB2001DBD7F /* Prospects.swift */,
 				7A8537142BED8CB5001DBD7F /* MeView.swift */,
 				7A8537122BED8CA6001DBD7F /* ProspectsView.swift */,
+				7A85371D2BF01C8E001DBD7F /* SortedProspectsView.swift */,
+				7A85371B2BEF379C001DBD7F /* ProspectEditingView.swift */,
 				7A8537082BEABCAF001DBD7F /* Assets.xcassets */,
 				7A85370A2BEABCAF001DBD7F /* Preview Content */,
 			);
@@ -158,7 +164,9 @@
 				7A8537132BED8CA6001DBD7F /* ProspectsView.swift in Sources */,
 				7A8537072BEABCAB001DBD7F /* ContentView.swift in Sources */,
 				7A8537052BEABCAB001DBD7F /* HotProspectsApp.swift in Sources */,
+				7A85371E2BF01C8E001DBD7F /* SortedProspectsView.swift in Sources */,
 				7A8537172BED8EB2001DBD7F /* Prospects.swift in Sources */,
+				7A85371C2BEF379C001DBD7F /* ProspectEditingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

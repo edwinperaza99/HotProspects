@@ -16,7 +16,7 @@ struct ProspectsView: View {
     }
     
     @Environment(\.modelContext) var modelContext
-    @Query(sort: \Prospect.name) var prospects: [Prospect]
+    @Query var prospects: [Prospect]
     @State private var isShowingScanner = false
     @State private var selectedProspects = Set<Prospect>()
     
@@ -36,7 +36,9 @@ struct ProspectsView: View {
     var body: some View {
         NavigationStack {
             List(prospects, selection: $selectedProspects) { prospect in
-                NavigationLink(destination: ProspectEditingView(prospect: prospect)) {
+                NavigationLink {
+                    ProspectEditingView(prospect: prospect)
+                } label: {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(prospect.name)
@@ -104,7 +106,7 @@ struct ProspectsView: View {
         }
     }
     
-    init(filter: FilterType) {
+    init(filter: FilterType, sort: [SortDescriptor<Prospect>]) {
         self.filter = filter
 
         if filter != .none {
@@ -112,7 +114,10 @@ struct ProspectsView: View {
 
             _prospects = Query(filter: #Predicate {
                 $0.isContacted == showContactedOnly
-            }, sort: [SortDescriptor(\Prospect.name)])
+            }, sort: sort)
+        }
+        else {
+            _prospects = Query(sort: sort)
         }
     }
     
@@ -173,7 +178,8 @@ struct ProspectsView: View {
     }
 }
 
+
 #Preview {
-    ProspectsView(filter: .none)
+    ProspectsView(filter: .none, sort: [SortDescriptor(\Prospect.name)])
         .modelContainer(for: Prospect.self)
 }
