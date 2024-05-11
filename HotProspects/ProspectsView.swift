@@ -36,11 +36,23 @@ struct ProspectsView: View {
     var body: some View {
         NavigationStack {
             List(prospects, selection: $selectedProspects) { prospect in
-                VStack(alignment: .leading) {
-                    Text(prospect.name)
-                        .font(.headline)
-                    Text(prospect.emailAddress)
-                        .foregroundStyle(.secondary)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(prospect.name)
+                            .font(.headline)
+                        Text(prospect.emailAddress)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    if filter == .none {
+                        if prospect.isContacted {
+                            Image(systemName: "bubble.left.and.text.bubble.right")
+                                .foregroundColor(.green)
+                        } else {
+                            Image(systemName: "bubble.left.and.exclamationmark.bubble.right")
+                                .foregroundColor(.red)
+                        }
+                    }
                 }
                 .swipeActions {
                     Button("Delete", systemImage: "trash", role: .destructive) {
